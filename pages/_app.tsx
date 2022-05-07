@@ -16,6 +16,7 @@ import '../styles/sidebar.css';
 import '../styles/transactions.css';
 import '../styles/transactions-detail.css';
 import '../styles/edit-profile.css';
+import '../styles/navbar-log-in.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
