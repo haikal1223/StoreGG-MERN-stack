@@ -2,42 +2,53 @@ import Footer from "./Footer";
 import MenuItem from "./MenuItem";
 import Profile from "./Profile";
 
-export default function SideBar() {
+interface SideBarProps {
+  activeMenu: "overview" | "transactions" | "settings";
+}
+export default function SideBar(props: SideBarProps) {
+  const { activeMenu } = props;
   const staticData = [
     {
       title: "Overview",
       icon: "ic-menu-overview",
-      active: true,
+      slug: "overview",
+      href: "/member",
     },
     {
       title: "Transactions",
       icon: "ic-menu-transactions",
-      active: false,
+      slug: "transactions",
+      href: "/member/transactions",
     },
     {
       title: "Messages",
       icon: "ic-menu-messages",
-      active: false,
+      slug: false,
+      href: "/member",
     },
     {
       title: "Card",
       icon: "ic-menu-card",
-      active: false,
+      slug: false,
+      href: "/member",
     },
     {
       title: "Rewards",
       icon: "ic-menu-rewards",
-      active: false,
+      slug: false,
+      href: "/member",
     },
     {
       title: "Settings",
       icon: "ic-menu-settings",
-      active: false,
+      slug: "settings",
+      href: "/member/edit-profile",
     },
     {
       title: "Log Out",
       icon: "ic-menu-logout",
-      active: false,
+      slug: false,
+      href: "/sign-in",
     },
   ];
 
@@ -48,7 +59,12 @@ export default function SideBar() {
         <div className="menus">
           {staticData.map((val) => {
             return (
-              <MenuItem title={val.title} icon={val.icon} active={val.active} />
+              <MenuItem
+                title={val.title}
+                icon={val.icon}
+                active={activeMenu === val.slug}
+                href={val.href}
+              />
             );
           })}
         </div>

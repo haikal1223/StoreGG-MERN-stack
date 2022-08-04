@@ -1,6 +1,6 @@
 import Image from "next/image";
-import FooterItem from "../../atoms/FooterItem";
-import FooterList from "../../atoms/FooterList";
+import FooterItem from "./FooterItem";
+import FooterList from "./FooterList";
 
 export default function Footer() {
   const staticData = [
