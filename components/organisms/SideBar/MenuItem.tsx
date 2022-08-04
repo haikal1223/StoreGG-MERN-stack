@@ -1,13 +1,16 @@
 import cx from "classnames";
 import Image from "next/image";
+import Link from "next/link";
 
 interface MenuItemProps {
   title: string;
   icon: string;
   active?: boolean;
+  href: Url;
 }
+// Partial on interface MenuItemProps means one of properties is nullable (nb: active?: boolean)
 export default function MenuItem(props: Partial<MenuItemProps>) {
-  const { title, icon, active } = props;
+  const { title, icon, active, href } = props;
   const classItem = cx({
     item: true,
     "mb-30": true,
@@ -24,9 +27,9 @@ export default function MenuItem(props: Partial<MenuItemProps>) {
         />
       </div>
       <p className="item-title m-0">
-        <a href="/" className="text-lg text-decoration-none">
-          {title}
-        </a>
+        <Link href={href}>
+          <a className="text-lg text-decoration-none">{title}</a>
+        </Link>
       </p>
     </div>
   );
